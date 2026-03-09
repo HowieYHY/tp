@@ -12,7 +12,7 @@ public class BudgetCommand extends Command {
     }
 
     @Override
-    public void execute(ExpenseManager expenses, Ui ui, Storage storage) throws ExpensiveLehException, IOException {
+    public void execute(ExpenseManager expenses, UI ui, Storage storage) throws ExpensiveLehException, IOException {
         boolean isNewBudget = expenses.getBudget() == 0.0;
         expenses.setBudget(value);
         storage.save(expenses.getBudget(), expenses.getExpenses());

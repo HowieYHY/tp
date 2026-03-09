@@ -7,5 +7,5 @@ import Storage.Storage;
 public abstract class Command {
 
 
-    public abstract void execute(ExpenseManager expenses, Ui ui, Storage storage) throws ExpensiveLehException, IOException;
+    public abstract void execute(ExpenseManager expenses, UI ui, Storage storage) throws ExpensiveLehException, IOException;
 }

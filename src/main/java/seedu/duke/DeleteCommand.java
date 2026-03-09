@@ -12,7 +12,7 @@ public class DeleteCommand extends Command {
     }
 
     @Override
-    public void execute(ExpenseManager expenses, Ui ui, Storage storage) throws ExpensiveLehException, IOException {
+    public void execute(ExpenseManager expenses, UI ui, Storage storage) throws ExpensiveLehException, IOException {
         Expense removedExpense = expenses.deleteExpense(index);
         storage.save(expenses.getBudget(), expenses.getExpenses());
         ui.showMessage((index + 1) + ": " + removedExpense.getCategory() + " " + removedExpense.getDescription() + " $" + String.format("%.2f", removedExpense.getAmount()) + " " + removedExpense.getFormattedDate() + " deleted!");

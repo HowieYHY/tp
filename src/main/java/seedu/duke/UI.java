@@ -31,4 +31,11 @@ public class UI {
     public String readCommand() { return in.nextLine().trim(); }
 
     public void showError(String message) { System.out.println(message); }
+
+    public void showMessage(String message) {
+        System.out.println(lineSeparator);
+        System.out.println(" ExpensiveLeh says -> " + message);
+        System.out.println(lineSeparator);
+    }
+
 }
