@@ -2,9 +2,11 @@ package seedu.duke;
 
 import Storage.Storage;
 
+import java.io.IOException;
+
 public class ListCommand extends Command {
     @Override
-    public void execute(ExpenseManager expenses, Ui ui, Storage storage) {
+    public void execute(ExpenseManager expenses, UI ui, Storage storage) throws ExpensiveLehException, IOException {
         if (expenses.isEmpty()) {
             ui.showMessage("No expense added yet");
             return;

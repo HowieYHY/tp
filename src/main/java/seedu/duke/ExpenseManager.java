@@ -2,6 +2,7 @@ package seedu.duke;
 
 import java.util.ArrayList;
 import java.time.LocalDate;
+import Storage.Expense;
 
 public class ExpenseManager {
     private final ArrayList<Expense> expenses;
@@ -17,30 +18,30 @@ public class ExpenseManager {
         this.budget = budget;
     }
 
-    public void addExpense(Expense expense) {
+    public void addExpense(seedu.duke.Expense expense) {
         expenses.add(expense);
     }
 
-    public Expense deleteExpense(int index) throws ExpensiveLehException {
+    public seedu.duke.Expense deleteExpense(int index) throws ExpensiveLehException {
         if (index < 0 || index >= expenses.size()) {
             throw new ExpensiveLehException("Expense ID " + (index + 1) + " doesn't exist.");
         }
-        return expenses.remove(index);
+        return (seedu.duke.Expense) expenses.remove(index);
     }
 
-    public Expense editExpense(int index, String category, String name, Double value, LocalDate date)
+    public seedu.duke.Expense editExpense(int index, String category, String name, Double value, LocalDate date)
             throws ExpensiveLehException {
         if (index < 0 || index >= expenses.size()) {
             throw new ExpensiveLehException("Expense ID " + (index + 1) + " doesn't exist.");
         }
 
-        Expense currentExpense = expenses.get(index);
+        seedu.duke.Expense currentExpense = (seedu.duke.Expense) expenses.get(index);
         String finalName = name != null ? name : currentExpense.getDescription();
         Double finalValue = value != null ? value : currentExpense.getAmount();
         LocalDate finalDate = date != null ? date : currentExpense.getDate();
         String finalCategory = category != null ? category : currentExpense.getCategory();
 
-        Expense newExpense;
+        seedu.duke.Expense newExpense;
         switch (finalCategory.toLowerCase()) {
         case "food":
             newExpense = new Food(finalName, finalValue, finalDate);
@@ -78,8 +79,8 @@ public class ExpenseManager {
         return budget - totalExpenses;
     }
 
-    public Expense getExpense(int index) {
-        return expenses.get(index);
+    public seedu.duke.Expense getExpense(int index) {
+        return (seedu.duke.Expense) expenses.get(index);
     }
 
     public int getSize() {

@@ -1,6 +1,7 @@
 package seedu.duke;
 
 import Storage.Storage;
+import Storage.Expense;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,6 +44,10 @@ public class ExpensiveLeh {
     }
 
     public static void main(String[] args) {
-        new ExpensiveLeh("./data/storage.txt").run();
+        try {
+            new ExpensiveLeh("./data/storage.txt").run();
+        } catch (IOException e) {
+            System.out.println("Error loading storage: " + e.getMessage());
+        }
     }
 }
